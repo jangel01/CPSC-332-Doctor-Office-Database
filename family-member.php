@@ -53,6 +53,8 @@
             echo "<td>".$row['Last_Name']."</td>";
             echo "<td>".$row['PhoneNumber']."</td>";
         }
+    echo "</table">;
+    echo "</pre>";
 
 
     if (isset($_GET['ssn']))
