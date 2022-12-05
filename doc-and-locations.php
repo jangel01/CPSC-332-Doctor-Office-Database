@@ -88,7 +88,7 @@
             echo $location;
 
             mysqli_free_result($result2);
-            mysqli_close($conneciton);
+            mysqli_close($connection);
         ?>
         
     </main>
