@@ -4,8 +4,8 @@
 
     <main style = "min-height: calc(100vh - 128px - 56px);">
         <div class="flex items-center justify-center mb-10 scale-125">
-            <div class = "border-2 border-black bg-slate-900 basis-2.5/12 text-white rounded-lg mt-10 px-10">
-                <p>Enter your city name to find avaiable doctors.</p> 
+            <div class = "border-2 border-black bg-slate-900 basis-3/12 text-white rounded-lg mt-10 px-10 py-3">
+                <p>Enter your city name to find avaiable doctors. Leave text field empty if you wish to view all doctors in every location.</p> 
             </div>
         </div> 
 
@@ -41,7 +41,7 @@
         </div>
         
         <div class="flex space-x-2 justify-center">
-            <input type = "submit" value = "submit" class = "inline-block px-10 py-2.5 mb-10 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+            <input type = "submit" name = "submit" value = "submit" class = "inline-block px-10 py-2.5 mb-10 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
         </div>
         </form>
         
@@ -51,7 +51,7 @@
 
             $server = 'localhost';
             $username = 'root';
-            $password = 'Sql1121990112233';
+            $password = '';
             $database = 'docOffice';
             $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
@@ -63,8 +63,6 @@
             from Appointment, Doctor, Patient
             where Doctor.first_name = Appointment.Doctor_Name
             order by Patient.City asc";
-
-            $result2 = mysqli_query($connection, $sql2);
 
             print "<div class = 'flex items-center justify-center'>";
                 print "<div class='flex flex-ol'>";
@@ -96,9 +94,14 @@
                                     print "</thead class='border-b'>";
 
                                     print "<tbody>";
-                                        while($row = mysqli_fetch_array($result2, MYSQLI_BOTH))
+                                        $i = 0;
+                                        $result = mysqli_query($connection, $sql2);
+
+                                        while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
                                         {
                                             if($row['City'] == $location) {
+                                                $i++;
+
                                                 print "<tr class='bg-white border-b'>";
                                                     print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
                                                     print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
@@ -109,62 +112,23 @@
                                                 print "</tr class='bg-white border-b'>";
                                             }
                                         }
-                                    print "</tbody>";
-                                print "</table>";
-                            print "</div>";
-                        print "</div>";
-                    print "</div>";
-                print "</div>";
-            print "</div>";
+                                        
+                                        if ($i == 0) {
+                                            $result = mysqli_query($connection, $sql2);
 
-            } else {
-                $sql = "select distinct Doctor.First_Name, doctor.Last_Name, Doctor.Specialty, Patient.City, Patient.State, Doctor.Phone_Number
-                from Appointment, Doctor, Patient
-                where Doctor.first_name = Appointment.Doctor_Name
-                order by Patient.City asc";
-
-                $result = mysqli_query($connection, $sql);
-                
-                print "<div class = 'flex items-center justify-center'>";
-                print "<div class='flex flex-ol'>";
-                    print "<div class='overflow-x-auto sm:-mx-6 lg:-mx-8'>";
-                        print "<div class='py-4 inline-block min-w-full sm:px-6 lg:px-8'>";
-                            print "<div class='overflow-hidden'>";
-                                print "<table class='min-w-full text-center'>";
-                                    print "<thead class='border-b bg-gray-800'>";
-                                        print "<tr>";
-                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
-                                                print "First Name";
-                                            print "</th>";
-                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
-                                                print "Last Name";
-                                            print "</th>";
-                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
-                                                print "Specialty";
-                                            print "</th>";
-                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
-                                                print "City";
-                                            print "</th>";
-                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
-                                                print "State";
-                                            print "</th>";
-                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
-                                                print "Phone Number";
-                                            print "</th>";
-                                        print "</tr>";
-                                    print "</thead class='border-b'>";
-
-                                    print "<tbody>";
-                                        while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
-                                        {
-                                            print "<tr class='bg-white border-b'>";
-                                                print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
-                                                print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
-                                                print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Specialty]</td>";
-                                                print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[City]</td>";
-                                                print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[State]</td>";
-                                                print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Phone_Number]</td>";
-                                            print "</tr class='bg-white border-b'>";
+                                            while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
+                                            {
+                                                
+                                                    print "<tr class='bg-white border-b'>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Specialty]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[City]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[State]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Phone_Number]</td>";
+                                                    print "</tr class='bg-white border-b'>";
+                                                
+                                            }
                                         }
                                     print "</tbody>";
                                 print "</table>";
@@ -173,15 +137,14 @@
                     print "</div>";
                 print "</div>";
             print "</div>";
-                }
+
+            } 
 
             if ($result != NULL) {
                 mysqli_free_result($result);
             }
 
-            if ($result2 != NULL ) {
-                mysqli_free_result($result2);
-            }
+    
             mysqli_close($connection);
         ?>
         
