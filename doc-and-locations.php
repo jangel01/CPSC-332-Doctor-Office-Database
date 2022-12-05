@@ -50,6 +50,8 @@
                     echo "<td>".$row['State']."</td>";
                     echo "<td>".$row['Phone_Number']."</td>";
                     }
+	    echo "</table>";
+	    echo"</pre>";
                 }
             } else {
                 $sql = "select distinct Doctor.First_Name, doctor.Last_Name, Doctor.Specialty, Patient.City, Patient.State, Doctor.Phone_Number
