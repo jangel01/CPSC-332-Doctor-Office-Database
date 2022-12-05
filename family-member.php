@@ -53,7 +53,7 @@
             echo "<td>".$row['Last_Name']."</td>";
             echo "<td>".$row['PhoneNumber']."</td>";
         }
-    echo "</table">;
+    echo "</table>";
     echo "</pre>";
 
 
