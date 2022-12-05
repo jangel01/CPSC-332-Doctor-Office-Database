@@ -55,6 +55,8 @@
                     echo "<td>".$row['Dr_Lname']."</td>";
                     echo "<td>".$row['Date_Given']."</td>";
                 }
+            echo "</table>";
+            echo "</pre>";
             }
             mysqli_free_result($result);
             }
@@ -96,6 +98,8 @@
                     echo "<td>".$row['Date_Given']."</td>";
 
                 }
+            echo "</table>";
+            echo "</pre>";
             mysqli_free_result($result2);
             }
 
