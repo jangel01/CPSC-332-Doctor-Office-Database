@@ -8,7 +8,7 @@
 <?php
             $server = 'localhost';
             $username = 'root';
-            $password = 'Lee20704!';
+            $password = '';
             $database = 'docOffice';
             $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
