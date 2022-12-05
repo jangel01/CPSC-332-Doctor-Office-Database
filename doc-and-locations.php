@@ -81,6 +81,8 @@
                     echo "<td>".$row['State']."</td>";
                     echo "<td>".$row['Phone_Number']."</td>";
                     }
+		echo "</table>";
+		echo "</pre>";
                 }
 
             echo $location;
