@@ -8,7 +8,7 @@
 <?php
             $server = 'localhost';
             $username = 'root';
-            $password = '';
+            $password = 'Lee20704!';
             $database = 'docOffice';
             $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 ?>
@@ -57,7 +57,7 @@
     echo "</pre>";
 
 
-    if (isset($_GET['ssn']))
+    if (isset($_REQUEST['ssn']))
     {
 
         $ssn = mysqli_real_escape_string($connection, $_REQUEST['ssn']);
@@ -65,14 +65,16 @@
         $lname = mysqli_real_escape_string($connection, $_REQUEST['Last_Name']);
         $phone = mysqli_real_escape_string($connection, $_REQUEST['PhoneNumber']);
 
-
         $sql = "Insert into Patient (SSN, First_Name, Last_Name, PhoneNumber)
         values ('$ssn', '$fname', '$lname', '$phone')";
+	//where not exists (select SSN, PhoneNumber where SSN = $ssn or PhoneNumber = $phone";
 
         if(mysqli_query($connection, $sql))
         {
             echo "added successfully";
-        } 
+        } else {
+		echo "already exists";
+	}
     }
 
 
