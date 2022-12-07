@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />    
 </head>
 
-<body>
+<body class = "overflow-x-hidden">
 <header>
     <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-0 text-center" role="alert">
         For a COVID-19 vaccine appointment, complete an <u> e-vist.</u> It's quick and easy. If you don't have an account, call 
