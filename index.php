@@ -29,8 +29,8 @@
     
       <h1 class="font-semibold leading-tight text-5xl mt-0 mb-2 text-grey-600 bold text-left mt-10 ml-5">How can we help you today?</h1>
 
-        <div class="flex items-stretchjustify-center mb-10 space-x-20 mt-10 text-center">
-            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm ">
+      <div class="flex justify-center mb-10 space-x-20 mt-10 text-center">
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
                 <h5 class="text-gray-900 text-xl leading-tight font-medium mb-5">Find Doctors and Locations</h5>
                 <img
                     src="https://static.vecteezy.com/system/resources/thumbnails/000/572/974/small/vector61-224-01.jpg"
