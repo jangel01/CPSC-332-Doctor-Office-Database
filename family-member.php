@@ -6,7 +6,7 @@
 
     <div class="flex items-center justify-center mb-10 scale-125">
             <div class = "border-2 border-black bg-slate-900 basis-3/12 text-white rounded-lg mt-10 mb-10 px-10 py-3">
-                <p>Enter your city name to find avaiable doctors. Leave text field empty if you wish to view all doctors in every location.</p> 
+                <p>Enter the details below for the family member you would like to add to the patient list.</p> 
             </div>
         </div> 
 
