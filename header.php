@@ -17,12 +17,17 @@
 <header>
     <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-0 text-center" role="alert">
         For a COVID-19 vaccine appointment, complete an <u> e-vist.</u> It's quick and easy. If you don't have an account, call 
-        our <u> appointment call center </u> 24/7 to make an appointment.
+        our <u> appointment call center </u> 24/7 to make an appointment. 
+        <br>
+        <span> -----</span>
+        <br>
+        <b> Announcement: </b> Dr. Robert Steven is retiring in 1 week. If you are his patient, please consider making an appointment with a new doctor. Please check your name <u><a href="announcement.php">here</a></u>
     </div>
+    <!--
     <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-0 text-center" role="alert">
         Announcement: Dr. Robert Steven is retiring in 1 week. If you are his patient, please consider making an appointment with a new doctor. Please check your name <u><a href="announcement.php">here</a></u>
     </div>
-
+-->
   <nav
   class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light mt-0"
 >

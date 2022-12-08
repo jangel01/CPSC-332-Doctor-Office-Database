@@ -2,7 +2,7 @@
 <html lang="en">
     <?php include('header.php'); ?>
 
-    <main style = "min-height: calc(100vh - 128px - 104px);">
+    <main style = "min-height: calc(100vh - 176px - 104px);">
     <h1 class="font-semibold leading-tight text-5xl mt-0 mb-2 text-grey-600 bold text-center mt-10">Find Doctors and Locations</h1>
 
         <div class="flex items-center justify-center mb-10 scale-125">

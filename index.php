@@ -2,7 +2,7 @@
 <html lang="en">
     <?php include('header.php'); ?>
 
-    <main style = "min-height: calc(100vh - 478px - 104px);">
+    <main style = "min-height: calc(100vh - 176px - 104px);">
         <!-- Background image -->
       <div class="relative overflow-hidden bg-no-repeat bg-cover" style="
         background-position: 50%;
