@@ -49,7 +49,6 @@
         
         <?php
             $result = NULL;
-            $result2 = NULL;
 
             $server = 'localhost';
             $username = 'root';
@@ -61,7 +60,7 @@
 
             $location = $_POST['city'];
 
-            $sql2 = "select distinct Doctor.First_Name, Doctor.Last_Name, Specialty.Specialty, Location.City, Location.State, Doctor.Phone_Number
+            $sql = "select distinct Doctor.First_Name, Doctor.Last_Name, Specialty.Specialty, Location.City, Location.State, Doctor.Phone_Number
             from Appointment, Doctor, Patient, Location, Specialty
             where Doctor.first_name = Appointment.Doctor_Name
             AND
@@ -100,31 +99,11 @@
                                     print "</thead class='border-b'>";
 
                                     print "<tbody>";
-                                        $i = 0;
-                                        $result = mysqli_query($connection, $sql2);
+                                        $result = mysqli_query($connection, $sql);
 
-                                        while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
-                                        {
-                                            if($row['City'] == $location) {
-                                                $i++;
-
-                                                print "<tr class='bg-white border-b'>";
-                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
-                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
-                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Specialty]</td>";
-                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[City]</td>";
-                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[State]</td>";
-                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Phone_Number]</td>";
-                                                print "</tr class='bg-white border-b'>";
-                                            }
-                                        }
-                                        
-                                        if ($i == 0) {
-                                            $result = mysqli_query($connection, $sql2);
-
+                                        if (empty($location)) {
                                             while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
-                                            {
-                                                
+                                            {                           
                                                     print "<tr class='bg-white border-b'>";
                                                         print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
                                                         print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
@@ -135,7 +114,28 @@
                                                     print "</tr class='bg-white border-b'>";
                                                 
                                             }
+                                        } else {
+                                            $location_lower = strtolower($location);
+
+                                            while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
+                                            {
+                                                $row_lower = strtolower($row['City']);
+                                                //$row_lower = strtolower(implode(" ", $row));
+                                                
+                                                if(strpos($row_lower, $location_lower) !== FALSE) {
+    
+                                                    print "<tr class='bg-white border-b'>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Specialty]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[City]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[State]</td>";
+                                                        print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Phone_Number]</td>";
+                                                    print "</tr class='bg-white border-b'>";
+                                                }
+                                            }
                                         }
+                                        
                                     print "</tbody>";
                                 print "</table>";
                             print "</div>";
