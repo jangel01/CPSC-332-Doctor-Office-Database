@@ -17,7 +17,7 @@
               <h3 class="text-3xl font-semibold mb-8">We are happy to assist you for your medical needs. Create an account to look up your appointments, access medical records, and much more! </h3>
                
               <button type="button"
-                class="inline-block px-6 py-2.5 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                class="inline-block px-6 py-2.5 text-white bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
                 Get started
               </button> 
