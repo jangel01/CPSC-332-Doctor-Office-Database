@@ -2,7 +2,7 @@
 <html lang="en">
     <?php include('header.php'); ?>
 
-    <main style = "min-height: calc(100vh - 478px - 56px);">
+    <main style = "min-height: calc(100vh - 478px - 104px);">
         <!-- Background image -->
       <div class="relative overflow-hidden bg-no-repeat bg-cover" style="
         background-position: 50%;
@@ -55,7 +55,7 @@
             </div>
     
             <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                <h5 class="text-gray-900 text-xl leading-tight font-medium mb-5">Fill Prescriptions</h5>
+                <h5 class="text-gray-900 text-xl leading-tight font-medium mb-5">Prescriptions</h5>
                 <img
                     src="https://static.thenounproject.com/png/3701609-200.png"
                     class="mx-auto w-32 mb-5"

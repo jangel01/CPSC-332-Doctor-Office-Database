@@ -2,7 +2,8 @@
 <html lang="en">
     <?php include('header.php'); ?>
 
-    <main style = "min-height: calc(100vh - 128px - 56px);">
+    <main style = "min-height: calc(100vh - 128px - 104px);">
+    <h1 class="font-semibold leading-tight text-5xl mt-0 mb-2 text-grey-600 bold text-center mt-10">Prescriptions</h1>
 
     <div class="flex items-center justify-center mb-10 scale-125">
             <div class = "border-2 border-black bg-slate-900 basis-3/12 text-white rounded-lg mt-10 px-10 py-3">
