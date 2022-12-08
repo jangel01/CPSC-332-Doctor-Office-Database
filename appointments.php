@@ -4,6 +4,47 @@
 
     <main style = "min-height: calc(100vh - 128px - 56px);">
 
+    <div class="flex items-center justify-center mb-10 scale-125">
+            <div class = "border-2 border-black bg-slate-900 basis-3/12 text-white rounded-lg mt-10 px-10 py-3">
+                <p>Enter your appointment number below to view the corresponding information for your appointment.</p> 
+            </div>
+        </div> 
+
+        <form action = "appointments.php" method = "post"> 
+        <div class="flex justify-center scale-110 mb-10">
+          <div class="mb-3 xl:w-96">
+            <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700"
+              >Appointment Number</label
+            >
+            <input
+              type="text"
+              class="
+                form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+              "
+              name = "num"
+              placeholder=""
+            />
+          </div>
+        </div>
+        
+        <div class="flex space-x-2 justify-center">
+            <input type = "submit" name = "submit" value = "submit" class = "inline-block px-10 py-2.5 mb-10 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+        </div>
+        </form>
 
 <?php
             $server = 'localhost';
@@ -12,20 +53,12 @@
             $database = 'docOffice';
             $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
-?>
-<form action = "appointments.php" method = "get">
-Appointment number: <input type = "text" name = "num">
-<input type = "submit">
-</form>
-
-<?php
 
         $result = NULL;
-        $result2 = NULL;
 
-        if(isset($_GET['num'])) {
+        if(isset($_POST['num'])) {
 
-            $num = $_GET['num'];
+            $num = $_POST['num'];
 
             $sql = "select Appointment.Appointment_Number, Appointment.Date, Appointment.Time, Appointment.Doctor_Name, Doctor.Phone_Number, Doctor.Specialty, Patient.First_Name, Patient.Last_Name, Appointment.Room_Number
             from Appointment, Doctor, Patient
@@ -33,82 +66,79 @@ Appointment number: <input type = "text" name = "num">
             order by Appointment.Appointment_Number asc";
 
             $result = mysqli_query($connection, $sql);
-            echo "<pre>";
-            echo "<table border = 1>
-            <tr>
-            <th> Appointment #</th>
-            <th> Appointment Date</th>
-            <th> Appointment Time</th>
-            <th> Doctor Name</th>
-            <th> Doctor Phone Number</th>
-            <th> Specialty </th>
-            <th> Patient First Name</th>
-            <th> Patient Last Name</th>
-            <th> Room Number </th>
-            </tr>";
 
-                while($row = mysqli_fetch_array($result))
-                {
-                    if($row['Appointment_Number'] == $num) {
-                    echo "<tr>";
-                    echo "<td>".$row['Appointment_Number']."</td>";
-                    echo "<td>".$row['Date']."</td>";
-                    echo "<td>".$row['Time']."</td>";
-                    echo "<td>".$row['Doctor_Name']."</td>";
-                    echo "<td>".$row['Phone_Number']."</td>";
-                    echo "<td>".$row['Specialty']."</td>";
-                    echo "<td>".$row['First_Name']."</td>";
-                    echo "<td>".$row['Last_Name']."</td>";
-                    echo "<td>".$row['Room_Number']."</td>";
-                }
-            }
-        echo "</pre>";
-        echo "</table>";
+            print "<div class = 'flex items-center justify-center'>";
+                print "<div class='flex flex-ol'>";
+                    print "<div class='overflow-x-auto sm:-mx-6 lg:-mx-8'>";
+                        print "<div class='py-4 inline-block min-w-full sm:px-6 lg:px-8'>";
+                            print "<div class='overflow-hidden'>";
+                                print "<table class='min-w-full text-center'>";
+                                    print "<thead class='border-b bg-gray-800'>";
+                                        print "<tr>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Appointment #";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Appointment Date";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Appointment Time";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Doctor Name";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Doctor Phone Number";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Speciality";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Patient First Name";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Patient Last Name";
+                                            print "</th>";
+                                            print "<th scope='col' class='text-sm font-medium text-white px-6 py-4'>";
+                                                print "Room Number";
+                                            print "</th>";
+                                        print "</tr>";
+                                    print "</thead class='border-b'>";
+
+                                    print "<tbody>";
+
+                                        while($row = mysqli_fetch_array($result))
+                                        {
+                                            if($row['Appointment_Number'] == $num) {
+                                                print "<tr class='bg-white border-b'>";
+
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Appointment_Number]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Date]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Time]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Doctor_Name]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Phone_Number]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Specialty]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[First_Name]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Last_Name]</td>";
+                                                    print "<td class='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>$row[Room_Number]</td>";
+
+                                                print "</tr class='bg-white border-b'>";
+                                        }
+                                    }
+                                    print "</tbody>";
+                                print "</table>";
+                            print "</div>";
+                        print "</div>";
+                    print "</div>";
+                print "</div>";
+            print "</div>";
+
+      
             
-        } else {
-
-            $sql2 = "select Appointment.Appointment_Number, Appointment.Date, Appointment.Time, Appointment.Doctor_Name, Doctor.Phone_Number, Doctor.Specialty, Patient.First_Name, Patient.Last_Name, Appointment.Room_Number
-            from Appointment, Doctor, Patient
-            where Patient.SSN = Appointment.Patient_SSN and Appointment.Doctor_Name = Doctor.First_Name
-            order by Appointment.Appointment_Number asc";
-
-            $result2 = mysqli_query($connection, $sql2);
-            echo "<pre>";
-            echo "<table border = 1>
-            <tr>
-            <th> Appointment #</th>
-            <th> Appointment Date</th>
-            <th> Appointment Time</th>
-            <th> Doctor Name</th>
-            <th> Doctor Phone Number</th>
-            <th> Specialty </th>
-            <th> Patient First Name</th>
-            <th> Patient Last Name</th>
-            <th> Room Number </th>
-            </tr>";
-
-            while($row = mysqli_fetch_array($result2))
-                {
-                    echo "<tr>";
-                    echo "<td>".$row['Appointment_Number']."</td>";
-                    echo "<td>".$row['Date']."</td>";
-                    echo "<td>".$row['Time']."</td>";
-                    echo "<td>".$row['Doctor_Name']."</td>";
-                    echo "<td>".$row['Phone_Number']."</td>";
-                    echo "<td>".$row['Specialty']."</td>";
-                    echo "<td>".$row['First_Name']."</td>";
-                    echo "<td>".$row['Last_Name']."</td>";
-                    echo "<td>".$row['Room_Number']."</td>";
-                }
-                echo "</pre>";
-                echo "</table>";
-            }
+        } 
 
             if($result != NULL) {
-            mysqli_free_result($result);
-            }
-            if($result2 != NULL) {
-            mysqli_free_result($result2);
+                mysqli_free_result($result);
             }
             mysqli_close($connection);
 
