@@ -27,16 +27,15 @@
       </div>
       <!-- Background image -->
     
-        <div class="flex items-center justify-center mb-10 space-x-20 mt-10 text-center">
-            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+        <div class="flex items-stretchjustify-center mb-10 space-x-20 mt-10 text-center">
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm ">
                 <h5 class="text-gray-900 text-xl leading-tight font-medium mb-5">Find Doctors and Locations</h5>
                 <img
                     src="https://static.vecteezy.com/system/resources/thumbnails/000/572/974/small/vector61-224-01.jpg"
                     class="mx-auto w-32 mb-5"
                     />
-                <p class="text-gray-700 text-base mb-4">
-                    Some quick example text to build on the card title and make up the bulk of the card's
-                    content.
+                <p class="text-gray-700 text-base mb-4" style = "line-height: 1.5em; height: 3em; overflow: hidden;">
+                    Find doctors based on city.
                 </p>
                 <button type="button" onclick = "window.location.href ='./doc-and-locations.php'" class=" inline-block px-6 py-2.5 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">></button>
             </div>
@@ -47,9 +46,8 @@
                     src="https://static.vecteezy.com/system/resources/thumbnails/000/376/259/small/Basic_Elements__28121_29.jpg"
                     class="mx-auto w-32 mb-5"
                     />
-                <p class="text-gray-700 text-base mb-4">
-                    Some quick example text to build on the card title and make up the bulk of the card's
-                    content.
+                <p class="text-gray-700 text-base mb-4" style = "line-height: 1.5em; height: 3em; overflow: hidden;">
+                    Add a family member as a patient.
                 </p>
                 <button type="button" onclick = "window.location.href ='./family-member.php'" class=" inline-block px-6 py-2.5 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">></button>
             </div>
@@ -60,9 +58,8 @@
                     src="https://static.thenounproject.com/png/3701609-200.png"
                     class="mx-auto w-32 mb-5"
                     />
-                <p class="text-gray-700 text-base mb-4">
-                    Some quick example text to build on the card title and make up the bulk of the card's
-                    content.
+                <p class="text-gray-700 text-base mb-4" style = "line-height: 1.5em; height: 3em; overflow: hidden;">
+                    View prescription information prescribed by your doctor.
                 </p>
                 <button type="button" onclick = "window.location.href ='./prescriptions.php'" class=" inline-block px-6 py-2.5 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">></button>
             </div>
@@ -73,9 +70,8 @@
                     src="https://static.vecteezy.com/system/resources/thumbnails/001/511/501/small/medical-appointment-icon-free-vector.jpg"
                     class="mx-auto w-32 mb-5"
                     />
-                <p class="text-gray-700 text-base mb-4">
-                    Some quick example text to build on the card title and make up the bulk of the card's
-                    content.
+                <p class="text-gray-700 text-base mb-4" style = "line-height: 1.5em; height: 3em; overflow: hidden;">
+                    Look up your appointment information.
                 </p>
                 <button type="button" onclick = "window.location.href ='./appointments.php'" class=" inline-block px-6 py-2.5 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">></button>
             </div>
@@ -86,9 +82,8 @@
                     src="https://static.vecteezy.com/system/resources/thumbnails/007/243/929/small/medical-records-icon-style-vector.jpg"
                     class="mx-auto w-32 mb-5"
                     />
-                <p class="text-gray-700 text-base mb-4">
-                    Some quick example text to build on the card title and make up the bulk of the card's
-                    content.
+                <p class="text-gray-700 text-base mb-4" style = "line-height: 1.5em; height: 3em; overflow: hidden;">
+                    Look up your medical records.
                 </p>
                 <button type="button" onclick = "window.location.href ='./medical-records.php'" class=" inline-block px-6 py-2.5 bg-slate-900 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">></button>
             </div>
