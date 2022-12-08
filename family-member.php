@@ -308,7 +308,11 @@
             $database = 'docOffice';
             $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
-    $sql2 = "select * from Patient";
+    $sql2 = "select Patient.SSN, Patient.First_Name, Insurance.Insurance_ID, Patient.Last_Name, Patient.PhoneNumber, Location.State, Location.City,
+    Location.Zip_Code, Location.Street_Number, Location.Street_Name 
+    FROM Patient, Location, Insurance
+    WHERE Patient.Address_ID = Location.Address_ID
+    AND Patient.First_Name = Insurance.First_Name;";
     $result2 = mysqli_query($connection, $sql2);
 
             print "<div class = 'flex items-center justify-center'>";

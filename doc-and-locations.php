@@ -61,10 +61,14 @@
 
             $location = $_POST['city'];
 
-            $sql2 = "select distinct Doctor.First_Name, doctor.Last_Name, Doctor.Specialty, Patient.City, Patient.State, Doctor.Phone_Number
-            from Appointment, Doctor, Patient
+            $sql2 = "select distinct Doctor.First_Name, Doctor.Last_Name, Specialty.Specialty, Location.City, Location.State, Doctor.Phone_Number
+            from Appointment, Doctor, Patient, Location, Specialty
             where Doctor.first_name = Appointment.Doctor_Name
-            order by Patient.City asc";
+            AND
+            Doctor.DoctorId = Specialty.DoctorId
+            AND 
+            Patient.Address_ID = Location.Address_ID
+            order by Location.City asc;";
 
             print "<div class = 'flex items-center justify-center'>";
                 print "<div class='flex flex-ol'>";

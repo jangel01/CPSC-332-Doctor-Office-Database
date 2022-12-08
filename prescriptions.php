@@ -18,9 +18,11 @@
             $database = 'docOffice';
             $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
-            $sql = "select Patient.First_Name, Patient.Last_Name, Prescription.Drug_Name, Prescription.Dosage, Prescription.Date_Prescribed, Doctor.First_Name as Dr_Fname, Doctor.Last_Name as Dr_Lname, Doctor.Phone_Number as Dr_PhoneNum
-            from Patient, Prescription, Doctor
-            where Prescription.Patient_SSN = Patient.SSN and Prescription.Prescribed_by = Doctor.DoctorID
+            $sql = "select Patient.First_Name, Patient.Last_Name, Prescription.Drug_Name, Drug.Dosage, Doctor_Prescribe.Date_Prescribed, Doctor.First_Name as Dr_Fname, Doctor.Last_Name as Dr_Lname, Doctor.Phone_Number as Dr_PhoneNum
+            from Patient, Prescription, Doctor, Doctor_Prescribe, Drug
+            where Prescription.Patient_SSN = Patient.SSN and Doctor_Prescribe.Prescribed_by = Doctor.DoctorID
+            AND Prescription.Drug_Name = Drug.Drug_Name
+            AND Prescription.Prescription_ID = Doctor_Prescribe.Prescription_ID
             order by Patient.First_Name asc";
 
             $result = mysqli_query($connection, $sql);

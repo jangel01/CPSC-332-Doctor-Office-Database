@@ -61,10 +61,12 @@
 
             $num = $_POST['num'];
 
-            $sql = "select Appointment.Appointment_Number, Appointment.Date, Appointment.Time, Appointment.Doctor_Name, Doctor.Phone_Number, Doctor.Specialty, Patient.First_Name, Patient.Last_Name, Appointment.Room_Number
-            from Appointment, Doctor, Patient
+            $sql = "select Appointment.Appointment_Number, Appointment.Date, Appointment.Time, Appointment.Doctor_Name, Doctor.Phone_Number, Specialty.Specialty, Patient.First_Name, Patient.Last_Name, Appointment.Room_Number
+            from Appointment, Doctor, Patient, Specialty
             where Patient.SSN = Appointment.Patient_SSN and Appointment.Doctor_Name = Doctor.First_Name
-            order by Appointment.Appointment_Number asc";
+            AND Doctor.DoctorID = Specialty.DoctorID
+            order by Appointment.Appointment_Number asc;
+";
 
             $result = mysqli_query($connection, $sql);
 
