@@ -17,8 +17,6 @@ CREATE TABLE Patient (
   Insurance_ID varchar(15)
 );
 
-ALTER TABLE Patient MODIFY Last_Name varchar(50) NOT NULL CHECK (Last_Name <> '');
-
 /* 1NF FOR PATIENT TABLE */
 ALTER TABLE Patient
 ADD PRIMARY KEY (SSN);
@@ -33,8 +31,6 @@ CREATE TABLE Insurance (
 	First_Name varchar(10),
     PRIMARY KEY (First_Name)
 );
-
-ALTER TABLE Insurance MODIFY First_Name varchar(50) NOT NULL CHECK (First_Name <> '');
 
 ALTER TABLE Patient
 ADD FOREIGN KEY (First_Name) REFERENCES Insurance(First_Name);
@@ -95,10 +91,6 @@ CREATE TABLE Salary (
     Salary varchar(50),
 	FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID)
 );
-
-/* 3NF FOR DOCTOR TABLE */
-ALTER TABLE Doctor
-DROP COLUMN Specialty;
 
 DROP TABLE IF EXISTS Specialty;
 CREATE TABLE Specialty (
@@ -186,10 +178,7 @@ CREATE TABLE Audit (
     Doctor_Name varchar(50),
     Action varchar(50),
     Specialty varchar(50),
-    Date_Modified DATE,
-    FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID),
-    FOREIGN KEY (Doctor_Name) REFERENCES Doctor(First_Name),
-    FOREIGN KEY (Specialty) REFERENCES Spcialty(Specialty)
+    Date_Modified DATE
     );
     
     -- alter later
@@ -330,7 +319,7 @@ INSERT INTO Location VALUES
 -- INSERT INTO DOCTOR WITH RANDOM NAME
 /* modified doctor Robert */
 INSERT INTO Doctor VALUES
-('RS5678', 'Stevens', 'Robert', '6598283244');
+('RS5678', 'Stevens', 'Robert', 'Allergy and Immunology', '6598283244');
 INSERT INTO Salary VALUES
 ('RS5678', '310000');
 INSERT INTO Specialty VALUES
@@ -338,7 +327,7 @@ INSERT INTO Specialty VALUES
 
 /* modified doctor Rezze */
 INSERT INTO Doctor VALUES
-('RT5677', 'Tom', 'Rezze', '6593893845');
+('RT5677', 'Tom', 'Rezze', 'Anesthesiology', '6593893845');
 INSERT INTO Salary VALUES
 ('RT5677', '310000');
 INSERT INTO Specialty VALUES
@@ -346,7 +335,7 @@ INSERT INTO Specialty VALUES
 
 /* modified doctor Thomas */
 INSERT INTO Doctor VALUES
-('TC5678', 'Cruiz', 'Tommas', '7147258843');
+('TC5678', 'Cruiz', 'Tommas', 'Dermatology', '7147258843');
 INSERT INTO Salary VALUES
 ('TC5678', '290000');
 INSERT INTO Specialty VALUES
@@ -354,7 +343,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor David */
 INSERT INTO Doctor VALUES
-('DT5678', 'Tan', 'David', '6598224244');
+('DT5678', 'Tan', 'David', 'Pahtology', '6598224244');
 INSERT INTO Salary VALUES
 ('DT5678', '410000');
 INSERT INTO Specialty VALUES
@@ -362,7 +351,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor Ryan */
 INSERT INTO Doctor VALUES
-('RP3678', 'Piseth', 'Ryan', '6598283244');
+('RP3678', 'Piseth', 'Ryan', 'Internal Medicine', '6598283244');
 INSERT INTO Salary VALUES
 ('RP3678', '310000');
 INSERT INTO Specialty VALUES
@@ -370,7 +359,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor Steve */
 INSERT INTO Doctor VALUES
-('ST2048', 'Gates', 'Steve', '6598284336');
+('ST2048', 'Gates', 'Steve', 'Psychiatry', '6598284336');
 INSERT INTO Salary VALUES
 ('ST2048', '410000');
 INSERT INTO Specialty VALUES
@@ -379,7 +368,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor Lamia */
 INSERT INTO Doctor VALUES
-('LD2033', 'Dris', 'Lamia', '7147233783');
+('LD2033', 'Dris', 'Lamia', 'Cardiologist', '7147233783');
 INSERT INTO Salary VALUES
 ('LD2033', '410000');
 INSERT INTO Specialty VALUES
@@ -388,7 +377,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor Rosa */
 INSERT INTO Doctor VALUES
-('RA4022', 'Andrade', 'Rosa', '7147338432');
+('RA4022', 'Andrade', 'Rosa', 'Physician', '7147338432');
 INSERT INTO Salary VALUES
 ('RA4022', '510000');
 INSERT INTO Specialty VALUES
@@ -396,7 +385,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor Ronin */
 INSERT INTO Doctor VALUES
-('RE5993', 'Enderson', 'Ronin', '7147284844');
+('RE5993', 'Enderson', 'Ronin', 'Endocrinologists', '7147284844');
 INSERT INTO Salary VALUES
 ('RE5993', '430000');
 INSERT INTO Specialty VALUES
@@ -404,7 +393,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor Jooby */
 INSERT INTO Doctor VALUES
-('JB3324', 'Babu', 'Jooby', '5089823444');
+('JB3324', 'Babu', 'Jooby', 'Pulmonologist', '5089823444');
 INSERT INTO Salary VALUES
 ('JB3324', '550000');
 INSERT INTO Specialty VALUES
@@ -412,7 +401,7 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor John */
 INSERT INTO Doctor VALUES
-('JS2011', 'Smith', 'John', '7147227411');
+('JS2011', 'Smith', 'John', 'Family Doctor', '7147227411');
 INSERT INTO Salary VALUES
 ('JS2011', '320000');
 INSERT INTO Specialty VALUES
@@ -420,21 +409,21 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor With no Specialty */
 INSERT INTO Doctor VALUES
-('PM3033', 'McKinnon', 'Peter', '713722739');
+('PM3033', 'McKinnon', 'Peter', '', '713722739');
 INSERT INTO Salary VALUES
 ('PM3033', '460000');
 INSERT INTO Specialty VALUES
 ('PM3033', '');
 
 INSERT INTO Doctor VALUES
-('JS3003', 'Sombath', 'June', '713725549');
+('JS3003', 'Sombath', 'June', '', '713725549');
 INSERT INTO Salary VALUES
 ('JS3003', '400000');
 INSERT INTO Specialty VALUES
 ('JS3003', '');
 
 INSERT INTO Doctor VALUES
-('LK1034', 'King', 'Luke', '713720039');
+('LK1034', 'King', 'Luke', '', '713720039');
 INSERT INTO Salary VALUES
 ('LK1034', '350000');
 INSERT INTO Specialty VALUES
