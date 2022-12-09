@@ -414,6 +414,22 @@ INSERT INTO Salary VALUES
 INSERT INTO Specialty VALUES
 ('JS2011', 'Family Doctor');
 
+/* Modified Doctor With no Specialty */
+INSERT INTO Doctor VALUES
+('PM3033', 'McKinnon', 'Peter', '713722739');
+INSERT INTO Salary VALUES
+('PM3033', '460000')
+
+INSERT INTO Doctor VALUES
+('JS3003', 'Sombath', 'June', '713725549');
+INSERT INTO Salary VALUES
+('JS3003', '400000')
+
+INSERT INTO Doctor VALUES
+('LK1034', 'King', 'Luke', '713720039');
+INSERT INTO Salary VALUES
+('LK1034', '350000')
+
 
 
 -- INSERT INTO PRESCRIPTION
