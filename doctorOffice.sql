@@ -17,6 +17,8 @@ CREATE TABLE Patient (
   Insurance_ID varchar(15)
 );
 
+ALTER TABLE Patient MODIFY Last_Name varchar(50) NOT NULL CHECK (Last_Name <> '');
+
 /* 1NF FOR PATIENT TABLE */
 ALTER TABLE Patient
 ADD PRIMARY KEY (SSN);
@@ -31,6 +33,8 @@ CREATE TABLE Insurance (
 	First_Name varchar(10),
     PRIMARY KEY (First_Name)
 );
+
+ALTER TABLE Insurance MODIFY First_Name varchar(50) NOT NULL CHECK (First_Name <> '');
 
 ALTER TABLE Patient
 ADD FOREIGN KEY (First_Name) REFERENCES Insurance(First_Name);
