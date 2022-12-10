@@ -343,11 +343,11 @@ INSERT INTO Specialty VALUES
 
 /* Modified Doctor David */
 INSERT INTO Doctor VALUES
-('DT5678', 'Tan', 'David', '6598224244', 'Pahtology');
+('DT5678', 'Tan', 'David', '6598224244', 'Pathology');
 INSERT INTO Salary VALUES
 ('DT5678', '410000');
 INSERT INTO Specialty VALUES
-('DT5678', 'Pahtology');
+('DT5678', 'Pathology');
 
 /* Modified Doctor Ryan */
 INSERT INTO Doctor VALUES
