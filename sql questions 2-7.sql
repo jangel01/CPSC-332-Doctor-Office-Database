@@ -1,4 +1,16 @@
 
+/* Question #2 */
+SELECT Patient.First_Name, Patient.Last_Name, Patient.PhoneNumber
+FROM ((Patient
+INNER JOIN Appointment ON Patient.SSN = Appointment.Patient_SSN AND Appointment.DoctorID = 'RS5678')
+INNER JOIN Medical_Test ON Patient.SSN = Medical_Test.Patient_SSN AND Medical_Test.DoctorID = 'RS5678');
+
+/* Question #3 */
+SELECT Doctor.First_Name, Doctor.Last_Name, Prescription.Drug_Name
+FROM Doctor, Prescription, Doctor_Prescribe
+WHERE Doctor.DoctorID = Doctor_Prescribe.Prescribed_by
+AND Prescription.Prescription_ID = Doctor_Prescribe.Prescription_ID
+AND Prescription.Drug_Name = 'Vicodin';
 
 ######################################################################################
 #4 create a view that has name and specialty of all doctors
