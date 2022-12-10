@@ -1,4 +1,5 @@
 
+
 ######################################################################################
 #4 create a view that has name and specialty of all doctors
 
@@ -30,3 +31,30 @@ for each row begin
 insert into Audit(DoctorID, Doctor_Name, Action, Specialty, Date_Modified) values (new.doctorid, NEW.`First_Name`, "updated", NEW.Specialty, curdate());
 end #
 delimiter ;
+
+######################################################################################
+#7 backup all tables if not first time remove backup and take new ones
+DROP TABLE IF EXISTS appointment_backup;
+create table appointment_backup as select * from appointment;
+DROP TABLE IF EXISTS aduit_backup;
+create table aduit_backup as select * from audit;
+DROP TABLE IF EXISTS doctor_backup;
+create table doctor_backup as select * from doctor;
+DROP TABLE IF EXISTS doctor_prescribe_backup;
+create table doctor_prescribe_backup as select * from doctor_prescribe;
+DROP TABLE IF EXISTS drug_backup;
+create table drug_backup as select * from drug;
+DROP TABLE IF EXISTS insurance_backup;
+create table insurance_backup as select * from insurance;
+DROP TABLE IF EXISTS location_backup;
+create table location_backup as select * from location;
+DROP TABLE IF EXISTS medical_test_backup;
+create table medical_test_backup as select * from medical_test;
+DROP TABLE IF EXISTS patient_backup;
+create table patient_backup as select * from patient;
+DROP TABLE IF EXISTS prescription_backup;
+create table prescription_backup as select * from prescription;
+DROP TABLE IF EXISTS salary_backup;
+create table salary_backup as select * from salary;
+DROP TABLE IF EXISTS specialty_backup;
+create table specialty_backup as select * from specialty;
