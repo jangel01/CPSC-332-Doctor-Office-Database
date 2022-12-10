@@ -43,14 +43,14 @@
     </form>
 
     <?php
+        $result = NULL;
+
         $server = 'localhost';
         $username = 'root';
         $password = '';
         $database = 'docOffice';
         $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
-
-        $result = NULL;
 
         if (isset($_POST['num'])) {
 

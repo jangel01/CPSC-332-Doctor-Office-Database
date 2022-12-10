@@ -13,6 +13,8 @@
     </div>
 
     <?php
+        $result = NULL;
+
         $server = 'localhost';
         $username = 'root';
         $password = '';
@@ -62,6 +64,11 @@
         print "</div>";
         print "</div>";
         print "</div>";
+
+        if ($result != NULL) {
+            mysqli_free_result($result);
+        }
+        mysqli_close($connection);
     ?>
 </main>
 <?php include('footer.php'); ?>
